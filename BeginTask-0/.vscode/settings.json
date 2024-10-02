@@ -62,6 +62,12 @@
         "__tree": "cpp",
         "__verbose_abort": "cpp",
         "ios": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "clocale": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "numeric": "cpp",
+        "numbers": "cpp",
+        "cinttypes": "cpp"
     }
 }
