@@ -30,10 +30,10 @@ public:
     }
     _array[_count]=elem;
 
-    if(_array[_count]>_max)
-    _max=_array[_count];
-    if(_array[_count]<_min)
-    _min=_array[_count];
+    if(elem>_max)
+    _max=elem;
+    if(elem<_min)
+    _min=elem;
     _count++;
 
     }
@@ -44,14 +44,7 @@ public:
     bool IsContains(T elem) {
        
         std::qsort(_array[0], _count,sizeof(T), compare);
-
         return std::binary_search(_array[0], _array[_count], elem);
-        //for(size_t i=0;i<_count;i++){
-        //    if(_array[i]==elem)
-        //   return true;
-        //}
-        
-        
     }
 
     T GetMax() {
