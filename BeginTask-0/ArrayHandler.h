@@ -20,9 +20,9 @@ public:
 
     void AppendElem(T elem) {
     if(_count==_size){
-    _size=_size*2;
+    _size=_size*3;
     T* temp_arr=new T[_size];
-    std::memcpy(temp_arr,_array,(_size/2)*sizeof(T));
+    std::memcpy(temp_arr,_array,(_size/3)*sizeof(T));
     delete[] _array;
     _array=temp_arr;
     }
