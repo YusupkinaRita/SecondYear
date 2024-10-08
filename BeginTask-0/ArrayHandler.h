@@ -37,8 +37,8 @@ public:
     _count++;
 
     }
-    T compare (const void * a, const void * b){
-        return ( *(T*)a - *(T*)b );
+    T compare (const T * a, const T * b){
+        return ( *a - *b );
         }
 
     bool IsContains(T elem) {
