@@ -1,5 +1,7 @@
 #include <cstring>
 #include <limits>
+#include <cstdlib>
+#include <algorithm>
 template<typename T>
 class ArrayHandler {
 private:
@@ -35,13 +37,21 @@ public:
     _count++;
 
     }
+    T compare (const void * a, const void * b){
+        return ( *(T*)a - *(T*)b );
+        }
 
     bool IsContains(T elem) {
-        for(size_t i=0;i<_size;i++){
-            if(_array[i]==elem)
-            return true;
-        }
-        return false;
+       
+        std::qsort(_array[0], _count,sizeof(T), compare);
+
+        return std::binary_search(_array[0], _array[_count], elem);
+        //for(size_t i=0;i<_count;i++){
+        //    if(_array[i]==elem)
+        //   return true;
+        //}
+        
+        
     }
 
     T GetMax() {
