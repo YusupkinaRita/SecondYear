@@ -41,10 +41,13 @@ void BitField::SetBit(size_t n) {
 size_t BitField::GetMemIndex(size_t n) const {
     if (n >= _sizeBit)
         throw "Bit out of range!";
-    size_t index = n / (8 * sizeof(uint16_t));
+    return n/(sizeof(uint16_t)*8);
 }
 
 uint8_t BitField::GetBit(size_t n) const {
+    if(n>=_sizeBit)
+            throw "Bit out of range";
+            return ((GetMask(n)&_mem[GetMemIndex(n)])!=0);
 
 }
 
