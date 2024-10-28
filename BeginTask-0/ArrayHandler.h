@@ -35,7 +35,6 @@ public:
     if(elem<_min)
     _min=elem;
     _count++;
-
     }
     T compare (const T * a, const T * b){
         return ( *a - *b );
