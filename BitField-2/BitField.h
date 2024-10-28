@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cstdint>
 class BitField {
 private:
     size_t _sizeBit;
