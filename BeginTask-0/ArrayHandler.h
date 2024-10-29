@@ -22,18 +22,18 @@ public:
 
     void AppendElem(T elem) {
     if(_count==_size){
-    _size=_size*3;
-    T* temp_arr=new T[_size];
-    std::memcpy(temp_arr,_array,(_count)*sizeof(T));
-    delete[] _array;
-    _array=temp_arr;
+        _size=_size*3;
+        T* temp_arr=new T[_size];
+        std::memcpy(temp_arr,_array,(_count)*sizeof(T));
+        delete[] _array;
+        _array=temp_arr;
     }
     _array[_count]=elem;
 
     if(elem>_max)
-    _max=elem;
+        _max=elem;
     if(elem<_min)
-    _min=elem;
+        _min=elem;
     _count++;
     }
     T compare (const T * a, const T * b){
