@@ -12,8 +12,8 @@ public:
   Set(const Set &s);       // конструктор копирования
   Set(const BitField &bf); // конструктор преобразования типа
   operator BitField(){ // преобразование типа к битовому полю
-
-  }
+    return _bitField;
+  };
   // доступ к битам
   size_t GetMaxPower(void) const;     // максимальная мощность множества
   void InsElem(const uint64_t Elem);       // включить элемент в множество
