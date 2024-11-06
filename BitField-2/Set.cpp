@@ -1,14 +1,14 @@
 #include "Set.h"
 
 
-Set::Set(size_t mp) : _bitField(10) {
+Set::Set(size_t mp) : _bitField(mp) {
     _maxPower=mp;
 }
-Set::Set(const Set &s) : _bitField(10){
+Set::Set(const Set &s) : _bitField(s._maxPower){
     _bitField=s._bitField;
     _maxPower=s._maxPower;
 } 
-Set::Set(const BitField &bf) : _bitField(10){
+Set::Set(const BitField &bf) : _bitField(bf.GetLength()){
     _bitField=bf;
     _maxPower=bf.GetLength();
 }
@@ -70,15 +70,13 @@ Set Set::operator* (const Set &s){
     return b;
 }
 Set Set::operator~ (){
-    Set b=Set(*this);
-    b._bitField=~b._bitField;
-
-    return b;
+    return (~this->_bitField);
 }
 std::vector<uint64_t> Set::GetPrimary(){//в тестах включено 1, тут нет, а остальное правильно
     std::vector<uint64_t> prim_num;
     BitField tmp=_bitField;
     uint64_t current_div=2;
+    prim_num.push_back(1);
     while(current_div<_maxPower){
         if (IsMember(current_div)){
             for(uint64_t i=current_div+current_div; i<_maxPower;i+=current_div){

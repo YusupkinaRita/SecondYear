@@ -82,8 +82,6 @@ BitField BitField::operator^(const BitField& tmp) {
 
 
 bool BitField::operator==(const BitField& tmp) const{
-    if(_sizeBit!=tmp._sizeBit)
-        return false;
     for(size_t i=0; i<_memSize;i++){
         if(_mem[i]!=tmp._mem[i])
         return false;
@@ -92,8 +90,10 @@ bool BitField::operator==(const BitField& tmp) const{
 }
 BitField BitField::operator~(){
     BitField b=BitField(*this);
-    for(size_t i=0; i<_memSize;i++ ){
-        b._mem[i]=~_mem[i];
+    for (int i = 0; i < _sizeBit; i++){
+        if (GetBit(i))
+             b.ClrBit(i);
+         else b.SetBit(i);
     }
     return b;
 }
